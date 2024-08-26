@@ -1,0 +1,198 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --background: #101114;
+  --primary-color: #1c1d20;
+  --secondary-color: #4a4d57;
+  --accent-color: #7a1cac;
+  --text-color: #f9f9f9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: "Poppins", sans-serif;
+  font-size: 16pt;
+  color: var(--text-color);
+}
+
+body {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background);
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.title img {
+  margin-top: 70px;
+  width: 15%;
+  height: auto;
+}
+
+.title h1 {
+  margin-top: 100px;
+  margin-bottom: 20px;
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--accent-color);
+}
+
+.wrapper {
+  width: 700px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#todo-input {
+  padding: 12px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--secondary-color);
+  border-radius: 1000px;
+  font: inherit;
+  background: none;
+  color: var(--text-color);
+  caret-color: var(--accent-color);
+}
+
+#todo-input:focus {
+  outline: none;
+}
+
+form {
+  position: relative;
+}
+
+#add-button {
+  padding: 0 30px;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  height: 100%;
+  font: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 1000px;
+  background-color: var(--accent-color);
+  color: var(--background);
+  cursor: pointer;
+}
+
+#add-button i {
+  margin-top: 5px;
+  font-size: 28px;
+  color: var(--primary-color);
+}
+
+.todo {
+  margin-bottom: 10px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+  background-color: var(--primary-color);
+}
+
+.todo .todo-text {
+  padding: 15px;
+  padding-right: 0;
+  flex-grow: 1;
+  transition: 0.6s ease;
+}
+
+.delete-button {
+  padding: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.delete-button svg {
+  transition: 0.5s ease;
+}
+
+.delete-button:hover svg {
+  fill: #ff0033;
+  transform: scale(1.1);
+}
+
+.custom-checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  min-height: 20px;
+  min-width: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  transition: 0.6s ease;
+  cursor: pointer;
+}
+
+.custom-checkbox i {
+  font-size: 22px;
+  color: transparent;
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox {
+  background-color: var(--accent-color);
+}
+
+input[type="checkbox"]:checked ~ .custom-checkbox i {
+  color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked ~ .todo-text {
+  text-decoration: line-through;
+  color: var(--secondary-color);
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+/* responsive web */
+
+@media (max-width: 500px) {
+  html {
+    font-size: 12pt;
+  }
+  #add-button {
+    position: unset;
+    width: 100%;
+    margin-top: 10px;
+    padding: 15px;
+    height: 50px;
+  }
+  #add-button i {
+    margin-top: 0;
+    font-size: 22px;
+  }
+  h1 {
+    margin-top: 50px;
+    font-size: 15vw;
+  }
+  .wrapper {
+    width: max-content;
+  }
+}
